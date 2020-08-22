@@ -1,7 +1,7 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-watch: true,
+  watch: true,
   module: {
     rules: [
       {
@@ -22,6 +22,12 @@ watch: true,
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader'
+        }
       }
     ]
   },
