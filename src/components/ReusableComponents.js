@@ -100,10 +100,13 @@ export function SingleAddress({ id, singleDetails, onClick }) {
   )
 }
 
-export function paragraphDisplay(leftOutput, rightOutput, rightOutputStyles) {
+export function ParagraphDisplay({ leftOutput, rightOutput, rightOutputStyles }) {
   return (
     <p>
-      {leftOutput}: <span className={cx(rightOutputStyles)}> {rightOutput}</span>
+      {leftOutput}:{' '}
+      <span className={cx(rightOutputStyles)}>
+        {rightOutput !== undefined || rightOutput !== null ? rightOutput : ''}
+      </span>
     </p>
   )
 }
