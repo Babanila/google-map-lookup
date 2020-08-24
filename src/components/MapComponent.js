@@ -1,6 +1,7 @@
 import React from 'react'
 import { LoadScript, GoogleMap, Marker, InfoWindow } from '@react-google-maps/api'
 import { cx, css } from 'emotion'
+import { paragraphDisplay } from './ReusableComponents'
 
 const containerStyle = {
   width: '100%',
@@ -36,14 +37,14 @@ function MapComponent({ addressData }) {
   const { results, status } = addressData
   if (status !== 'OK') alert('Missing Location Data')
 
-  const success = () => {
+  const setInputLocation = () => {
     const { lat, lng } = results[0].geometry.location
     const currentPosition = { lat, lng }
     setCurrentPosition(currentPosition)
   }
 
   React.useEffect(() => {
-    navigator.geolocation.getCurrentPosition(success)
+    navigator.geolocation.getCurrentPosition(setInputLocation)
   })
 
   const handleClick = () => {
@@ -65,22 +66,15 @@ function MapComponent({ addressData }) {
             onCloseClick={() => setShowDetails(false)}
           >
             <div className={cx(infoDiv)}>
-              <p>
-                Id: <span className={cx(infoSpan)}> {results[0].place_id}</span>
-              </p>
-              <p>
-                Address: <span className={cx(infoSpan)}> {results[0].formatted_address}</span>
-              </p>
-              <p>
-                Location Type:
-                <span className={cx(infoSpan)}> {results[0].geometry.location_type}</span>
-              </p>
-              <p>
-                Latitude: <span className={cx(infoSpan)}> {results[0].geometry.location.lat}</span>
-              </p>
-              <p>
-                Longitude: <span className={cx(infoSpan)}> {results[0].geometry.location.lng}</span>
-              </p>
+              {paragraphDisplay('Id', results[0].place_id, infoSpan)}
+              {paragraphDisplay('Address', results[0].formatted_address, infoSpan)}
+              {paragraphDisplay(
+                'Location Type',
+                results[0].geometry.location.location_type,
+                infoSpan
+              )}
+              {paragraphDisplay('Latitude', results[0].geometry.location.lat, infoSpan)}
+              {paragraphDisplay('Longitude', results[0].geometry.location.lng, infoSpan)}
             </div>
           </InfoWindow>
         ) : null}

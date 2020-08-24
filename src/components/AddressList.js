@@ -90,7 +90,7 @@ function AddressList() {
         <div className={cx(tableHeaderDiv)}>Address</div>
 
         {userData.length === 0 ? (
-          <div className={cx(tableNullBody)}> No user Data is empty</div>
+          <div className={cx(tableNullBody)}> No Address Data</div>
         ) : (
           <div className={cx(tableBodyDiv)}>
             {userData.map((item, i) => (

@@ -99,3 +99,11 @@ export function SingleAddress({ id, singleDetails, onClick }) {
     </div>
   )
 }
+
+export function paragraphDisplay(leftOutput, rightOutput, rightOutputStyles) {
+  return (
+    <p>
+      {leftOutput}: <span className={cx(rightOutputStyles)}> {rightOutput}</span>
+    </p>
+  )
+}
