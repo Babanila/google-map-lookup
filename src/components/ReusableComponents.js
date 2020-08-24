@@ -1,7 +1,7 @@
 import React from 'react'
 import { css, cx } from 'emotion'
 import HeaderImage from '../assets/images/Pressemappe-doctari Logo_400x112_20052020.png'
-import { splitString, getAddress } from '../utils/helpers'
+import { splitString, getAddressPostCode } from '../utils/helpers'
 
 export function LoadingPage() {
   const loadingStyle = css`
@@ -10,7 +10,7 @@ export function LoadingPage() {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ff0000;
+    color: #000000;
     margin-top: 10em;
   `
   return <h3 className={cx(loadingStyle)}>Loading ...</h3>
@@ -88,7 +88,7 @@ export function SingleAddress({ id, singleDetails, onClick }) {
   `
 
   const splitData = splitString(singleDetails, ',').filter((item) => item !== '')
-  const address = getAddress(splitData)
+  const address = getAddressPostCode(splitData)
   return (
     <div className={cx(tableRowDiv)} onClick={() => onClick(address)}>
       <div className={cx(tableCellDiv)}>{id}</div>

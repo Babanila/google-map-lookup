@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { cx, css } from 'emotion'
 import AddressList from './AddressList'
 import DisplayAddress from './DisplayAddress'
@@ -14,14 +14,14 @@ const rootDiv = css`
 
 function App() {
   return (
-    <div className={cx(rootDiv)}>
+    <BrowserRouter className={cx(rootDiv)}>
       <PageHeader />
       <Switch>
         <Route exact path="/" render={(props) => <AddressList {...props} />} />
         <Route path="/location/:postcode" render={(props) => <DisplayAddress {...props} />} />
         <Route component={ErrorPage} />
       </Switch>
-    </div>
+    </BrowserRouter>
   )
 }
 

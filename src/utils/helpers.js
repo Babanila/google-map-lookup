@@ -6,7 +6,7 @@ export function splitString(inputString, inputSymbol) {
   return inputString.split(`${inputSymbol}`)
 }
 
-export function getAddress(parsedAddress) {
+export function getAddressPostCode(parsedAddress) {
   return parsedAddress.length > 3
     ? splitString(parsedAddress[3], ' ')[0]
     : splitString(parsedAddress[2], ' ')[0]
