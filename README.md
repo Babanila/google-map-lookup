@@ -1,34 +1,58 @@
-# doctari test project
+# google-map-lookup
+
 ## Description
-Create a tool which presents the given test data in `data/testdaten.txt` in an user interface. Use HTML.
-In addition, the tool must be able to display the federal states of Germany (Bundesland) for each of the records.
-Request the GoogleMaps Geocoding API to get the federal states.
-*Hint: In Germany, the zip code is clearly assigned to a federal state.*
 
-`https://maps.googleapis.com/maps/api/geocode/json?address=<ADRESS>&key=<GOOGLE_API_KEY>`
+# Table of Contents
 
-**Please consider that API requests are expensive and limited.**
+- [Features](#features)
+- [Requirements](#requirements)
+- [Usage](#usage)
 
-Write your code like you would do it for a production system in a company and please consider the following points:
-* architecture / code structure
-* OOP
-* performance
-* reusable code
-* modularity
-* clean code
+## Features
 
-PS: We don't care about a good frontend layout ;)
+- View All Address
+- View Individual Address location on Google Map
+- View Individual Address Details (State, Country) on Marker Click (on Google Map)
 
-We wish you success!
+## Requirements
 
-## Installation
+Make sure you have installed all of the following prerequisites on your development machine:
 
-1. `yarn install`
+- Git - [Download & Install Git](https://git-scm.com/downloads). MacOS and Linux machines typically have this already installed.
 
-## Run the tool
+- Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager. Make sure to get the latest active LTS version.
 
-1. `yarn webpack` (watcher)
+- Download the Google-Map-Lookup from this [link](https://github.com/Babanila/google-map-lookup) or use `git clone git@github.com:Babanila/google-map-lookup.git`.
+
+## How to start the frontend app
+
+- Go to your terminal.
+- Locate the downloaded google-map-lookup directory.
+- Change the directory to the google-map-lookup directory(e.g `cd google-map-lookup`).
+- Run `yarn install`.
+- Export the Google Api Key as `API_KEY` to the terminal environment (e.g `export API_KEY="XXXXXXXXXXXXXXXXXX"`)
+- To start the app, run `yarn start` on your terminal.
+
+### Usage
+
+To use the app , follow the steps below.
+
+STEPS
+
+- Open a web browser (It will open automatically)
+- Enter the localhost address using port 8080 (`e.g http://localhost:8080`).
+- View at all the addresses in the address list.
+- Click on any address to see the location on Google map.
+- Click on the location marker (the black dot on the red shape) to view the location details.
+- Clickon the back button to return to the home page.
+- E.t.c
+
+### To run unit tests
+
+- From the root directory, run `yarn test`
+
+### For Production
+
+- From the root directory, run `yarn build`
 
 ## Finish
-
-1. Please send your solution as a zip-file to "hiring-it@doctari.de".

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check App Component should renders App without crashing 1`] = `
+<Component
+  className="css-1edrwtt"
+>
+  <PageHeader />
+  <Switch>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      path="/location/:postcode"
+      render={[Function]}
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
+</Component>
+`;

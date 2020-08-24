@@ -1,10 +1,6 @@
-import readFile from './utils/readFile';
+import React from 'react'
+import { render } from 'react-dom'
+import App from './components/App'
+import './index.css'
 
-const app = document.getElementById('root');
-
-readFile('../data/testdaten.txt').then((content) => {
-    const element = document.createElement('pre');
-    element.appendChild(document.createTextNode(content));
-
-    app.appendChild(element);
-});
+render(<App />, document.getElementById('root'))
