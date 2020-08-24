@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check MapComponent Component should renders component without crashing 1`] = `
+Array [
+  <div />,
+  <div>
+    Loading...
+  </div>,
+]
+`;

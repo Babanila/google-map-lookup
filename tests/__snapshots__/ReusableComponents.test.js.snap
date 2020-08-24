@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check all components in ReusableComponents file Check ErrorPage Component should renders without crashing 1`] = `
+<div
+  className="css-122mbig"
+>
+  <h3>
+    Page not found!!!
+  </h3>
+</div>
+`;
+
+exports[`Check all components in ReusableComponents file Check LoadingPage Component should renders without crashing 1`] = `
+<h3
+  className="css-a4inhu"
+>
+  Loading ...
+</h3>
+`;
+
+exports[`Check all components in ReusableComponents file Check PageHeader Component should renders without crashing 1`] = `
+<div
+  className="css-1coyrje"
+>
+  <div
+    className="css-1qks4dw"
+  >
+    <img
+      alt="header-image"
+      height="50px"
+      src="test-file-stub"
+    />
+  </div>
+</div>
+`;
+
+exports[`Check all components in ReusableComponents file Check SingleAddress Component should renders without crashing 1`] = `
+<div
+  className="css-11uph3y"
+  onClick={[Function]}
+>
+  <div
+    className="css-vidr6r"
+  >
+    3
+  </div>
+  <div
+    className="css-vidr6r"
+  >
+    Sandra Abendroth
+  </div>
+  <div
+    className="css-vidr6r"
+  >
+    Fischerinsel 4, 41063 Mönchengladbach Eicken 
+  </div>
+</div>
+`;
+
+exports[`Check all components in ReusableComponents file Check SingleButton Component should renders without crashing 1`] = `
+<button
+  className="css-wxcfy9"
+  onClick={[Function]}
+>
+  Back
+</button>
+`;

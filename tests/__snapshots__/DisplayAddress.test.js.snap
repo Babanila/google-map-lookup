@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check DisplayAddress Component should renders component without crashing 1`] = `
+<h3
+  className="css-a4inhu"
+>
+  Loading ...
+</h3>
+`;
