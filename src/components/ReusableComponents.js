@@ -1,6 +1,6 @@
 import React from 'react'
 import { css, cx } from 'emotion'
-import HeaderImage from '../assets/images/Pressemappe-doctari Logo_400x112_20052020.png'
+import HeaderImage from '../assets/images/header_image.png'
 import { splitString, getAddressPostCode } from '../utils/helpers'
 
 export function LoadingPage() {
