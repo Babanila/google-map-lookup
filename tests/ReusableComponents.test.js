@@ -7,7 +7,8 @@ import {
   ErrorPage,
   PageHeader,
   SingleButton,
-  SingleAddress
+  SingleAddress,
+  ParagraphDisplay
 } from '../src/components/ReusableComponents'
 
 describe('Check all components in ReusableComponents file', () => {
@@ -131,6 +132,48 @@ describe('Check all components in ReusableComponents file', () => {
       expect(actual.at(0).childAt(2).text()).toEqual(
         'Fischerinsel 4, 41063 Mönchengladbach Eicken '
       )
+    })
+  })
+
+  describe('Check paragraphDisplay Component', () => {
+    let leftOutput, rightOutput, rightOutputStyles
+    beforeEach(() => {
+      leftOutput = 'State'
+      rightOutput = 'Deutschland'
+      rightOutputStyles = css`
+        color: #36a7fe;
+        font-style: italic;
+      `
+    })
+
+    it('should renders without crashing', () => {
+      const tree = renderer
+        .create(
+          <ParagraphDisplay
+            leftOutput={leftOutput}
+            rightOutput={rightOutput}
+            rightOutputStyles={rightOutputStyles}
+          />
+        )
+        .toJSON()
+      expect(tree).toMatchSnapshot()
+    })
+
+    it('should render correct number of element in paragraphDisplay component', () => {
+      const ParagraphDisplayWrapper = shallow(
+        <ParagraphDisplay
+          leftOutput={leftOutput}
+          rightOutput={rightOutput}
+          rightOutputStyles={rightOutputStyles}
+        />
+      )
+
+      expect(ParagraphDisplay).toBeDefined()
+      expect(ParagraphDisplayWrapper.exists).toBeTruthy()
+      expect(ParagraphDisplayWrapper.find('p').length).toEqual(1)
+      expect(ParagraphDisplayWrapper.find('p').text()).toEqual('State: Deutschland')
+      expect(ParagraphDisplayWrapper.find('span').length).toEqual(1)
+      expect(ParagraphDisplayWrapper.find('span').text()).toEqual('Deutschland')
     })
   })
 })

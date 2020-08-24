@@ -1,5 +1,10 @@
 import axios from 'axios'
-const { splitString, getAddressPostCode, simpleFetcher } = require('../src/utils/helpers')
+const {
+  splitString,
+  getAddressPostCode,
+  simpleFetcher,
+  getLocationDetails
+} = require('../src/utils/helpers')
 
 describe('Check all the Utils functions', () => {
   jest.mock('axios')
@@ -166,6 +171,63 @@ describe('Check all the Utils functions', () => {
       expect(actual.status).toEqual(404)
       expect(actual.statusText).toBe('Not Found')
       expect(actual).toEqual({ ...dataFromFile2 })
+    })
+  })
+
+  describe('Check getLocationDetails function', () => {
+    it('should extract placeId, lat, lng, postCode, area, state and country from passed data.', () => {
+      const sampleData = {
+        address_components: [
+          {
+            long_name: '41063',
+            short_name: '41063',
+            types: ['postal_code']
+          },
+          {
+            long_name: 'Nord',
+            short_name: 'Nord',
+            types: ['political', 'sublocality', 'sublocality_level_1']
+          },
+          {
+            long_name: 'Mönchengladbach',
+            short_name: 'MG',
+            types: ['locality', 'political']
+          },
+          {
+            long_name: 'Düsseldorf',
+            short_name: 'Düsseldorf',
+            types: ['administrative_area_level_2', 'political']
+          },
+          {
+            long_name: 'Nordrhein-Westfalen',
+            short_name: 'NRW',
+            types: ['administrative_area_level_1', 'political']
+          },
+          {
+            long_name: 'Deutschland',
+            short_name: 'DE',
+            types: ['country', 'political']
+          }
+        ],
+        place_id: 'ChIJNR34-n-ruEcRIIQlq_9gJxw',
+        geometry: {
+          location: {
+            lat: 51.2076921,
+            lng: 6.4227663
+          }
+        },
+        formatted_address: '41063 Mönchengladbach, Deutschland'
+      }
+
+      const { placeId, lat, lng, postCode, area, state, country } = getLocationDetails(sampleData)
+      expect(getLocationDetails).toBeInstanceOf(Function)
+      expect(placeId).toBe('ChIJNR34-n-ruEcRIIQlq_9gJxw')
+      expect(lat).toBe(51.2076921)
+      expect(lng).toBe(6.4227663)
+      expect(postCode).toBe('41063')
+      expect(area).toBe('Düsseldorf')
+      expect(state).toBe('Nordrhein-Westfalen')
+      expect(country).toBe('Deutschland')
     })
   })
 })
